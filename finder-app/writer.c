@@ -10,6 +10,9 @@ int main(int argc, char** argv)
 		file = fopen(argv[1], "w+");
 		fputs(argv[2], file);
 
+		openlog(NULL, 0, LOG_USER);
+		syslog(LOG_DEBUG, "Writing to %s file %s", argv[2], argv[1]);
+
 		fclose(file);
 	}
 	
